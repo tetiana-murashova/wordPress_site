@@ -1,6 +1,7 @@
 <?php
 
 function university_files() {
+    wp_enqueue_script('menu_script', get_theme_file_uri('/js/script.js'));
     wp_enqueue_script('main_university_script', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);
     wp_enqueue_style('font_styles', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
     wp_enqueue_style('university_main_styles', get_stylesheet_uri());
