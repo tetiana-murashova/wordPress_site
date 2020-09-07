@@ -4,7 +4,6 @@ get_header();
 while(have_posts()) {
     the_post(); ?>
 
-
     <div class="page-banner">
         <div class="page-banner__bg-image" style="background-image: url(<?= get_theme_file_uri('/images/ocean.jpg') ?>);"></div>
         <div class="page-banner__content container container--narrow">
@@ -44,7 +43,7 @@ while(have_posts()) {
                 }
 
                 wp_list_pages([
-                     'title_li' => NULL,
+                    'title_li' => NULL,
                     'child_of' => $findChildOf,
                     'sort_column' => 'menu_order'
                 ]);
@@ -52,7 +51,6 @@ while(have_posts()) {
             </ul>
         </div>
         <?php } ?>
-
 
         <div class="generic-content">
      <?php the_content(); ?>
