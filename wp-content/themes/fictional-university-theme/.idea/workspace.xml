@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +85,7 @@
       <workItem from="1599368571920" duration="3246000" />
       <workItem from="1599452490296" duration="1243000" />
       <workItem from="1599455223910" duration="2676000" />
-      <workItem from="1599622072586" duration="3221000" />
+      <workItem from="1599622072586" duration="4250000" />
     </task>
     <servers />
   </component>
