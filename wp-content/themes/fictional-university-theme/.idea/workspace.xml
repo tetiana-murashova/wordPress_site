@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="718f9e76-b919-4440-adac-c61d08bb699c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +38,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="ProjectId" id="1gtkc83BDo2mEXxpOd9dLJ2Hjrx" />
@@ -109,6 +112,22 @@
       <screen x="0" y="23" width="1680" height="972" />
     </state>
     <state x="851" y="272" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1680.972@0.23.1680.972" timestamp="1599110845048" />
+    <state width="1308" height="249" key="GridCell.Tab.0.bottom" timestamp="1599806619090">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state width="1308" height="249" key="GridCell.Tab.0.bottom/0.23.1680.972@0.23.1680.972" timestamp="1599806619090" />
+    <state width="1308" height="249" key="GridCell.Tab.0.center" timestamp="1599806619089">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state width="1308" height="249" key="GridCell.Tab.0.center/0.23.1680.972@0.23.1680.972" timestamp="1599806619089" />
+    <state width="1308" height="249" key="GridCell.Tab.0.left" timestamp="1599806619088">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state width="1308" height="249" key="GridCell.Tab.0.left/0.23.1680.972@0.23.1680.972" timestamp="1599806619088" />
+    <state width="1308" height="249" key="GridCell.Tab.0.right" timestamp="1599806619089">
+      <screen x="0" y="23" width="1680" height="972" />
+    </state>
+    <state width="1308" height="249" key="GridCell.Tab.0.right/0.23.1680.972@0.23.1680.972" timestamp="1599806619089" />
     <state x="644" y="458" key="NewPhpFileDialog" timestamp="1599455381864">
       <screen x="0" y="23" width="1680" height="972" />
     </state>

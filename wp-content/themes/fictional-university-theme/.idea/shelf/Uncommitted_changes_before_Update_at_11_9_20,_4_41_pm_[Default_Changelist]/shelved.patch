@@ -1,0 +1,184 @@
+Index: front-page.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php get_header(); ?>\n\n<div class=\"page-banner\">\n    <div class=\"page-banner__bg-image\" style=\"background-image: url(<?php echo get_theme_file_uri('/images/library-hero.jpg') ?>);\"></div>\n    <div class=\"page-banner__content container t-center c-white\">\n        <h1 class=\"headline headline--large\">Welcome!</h1>\n        <h2 class=\"headline headline--medium\">We think you&rsquo;ll like it here.</h2>\n        <h3 class=\"headline headline--small\">Why don&rsquo;t you check out the <strong>major</strong> you&rsquo;re interested in?</h3>\n        <a href=\"#\" class=\"btn btn--large btn--blue\">Find Your Major</a>\n    </div>\n</div>\n\n<div class=\"full-width-split group\">\n    <div class=\"full-width-split__one\">\n        <div class=\"full-width-split__inner\">\n            <h2 class=\"headline headline--small-plus t-center\">Upcoming Events</h2>\n\n            <div class=\"event-summary\">\n                <a class=\"event-summary__date t-center\" href=\"#\">\n                    <span class=\"event-summary__month\">Mar</span>\n                    <span class=\"event-summary__day\">25</span>\n                </a>\n                <div class=\"event-summary__content\">\n                    <h5 class=\"event-summary__title headline headline--tiny\"><a href=\"#\">Poetry in the 100</a></h5>\n                    <p>Bring poems you&rsquo;ve wrote to the 100 building this Tuesday for an open mic and snacks. <a href=\"#\" class=\"nu gray\">Learn more</a></p>\n                </div>\n            </div>\n            <div class=\"event-summary\">\n                <a class=\"event-summary__date t-center\" href=\"#\">\n                    <span class=\"event-summary__month\">Apr</span>\n                    <span class=\"event-summary__day\">02</span>\n                </a>\n                <div class=\"event-summary__content\">\n                    <h5 class=\"event-summary__title headline headline--tiny\"><a href=\"#\">Quad Picnic Party</a></h5>\n                    <p>Live music, a taco truck and more can found in our third annual quad picnic day. <a href=\"#\" class=\"nu gray\">Learn more</a></p>\n                </div>\n            </div>\n\n            <p class=\"t-center no-margin\"><a href=\"#\" class=\"btn btn--blue\">View All Events</a></p>\n        </div>\n    </div>\n    <div class=\"full-width-split__two\">\n        <div class=\"full-width-split__inner\">\n            <h2 class=\"headline headline--small-plus t-center\">From Our Blogs</h2>\n            <?php\n            $homepagePosts = new WP_Query([\n                    'posts_per_page' => 2\n            ]);\n            while($homepagePosts->have_posts()) {\n                $homepagePosts->the_post();\n                ?>\n\n\n                <div class=\"event-summary\">\n                    <a class=\"event-summary__date event-summary__date--beige t-center\" href=\"<?php the_permalink(); ?>\">\n                        <span class=\"event-summary__month\"><?php the_time('M'); ?></span>\n                        <span class=\"event-summary__day\"><?php the_time('d'); ?></span>\n                    </a>\n                    <div class=\"event-summary__content\">\n                        <h5 class=\"event-summary__title headline headline--tiny\"><a href=\"<?php the_permalink(); ?>\"><?php the_title(); ?></a></h5>\n                        <p><?= wp_trim_words(get_the_content(), 18); ?> <a href=\"<?php the_permalink(); ?>\" class=\"nu gray\">Read more</a></p>\n                    </div>\n                </div>\n                <?php } wp_reset_postdata(); ?>\n\n\n            <p class=\"t-center no-margin\"><a href=\"#\" class=\"btn btn--yellow\">View All Blog Posts</a></p>\n        </div>\n    </div>\n</div>\n\n<div class=\"hero-slider\">\n    <div data-glide-el=\"track\" class=\"glide__track\">\n        <div class=\"glide__slides\">\n            <div class=\"hero-slider__slide\" style=\"background-image: url(<?= get_theme_file_uri('/images/bus.jpg'); ?>);\">\n                <div class=\"hero-slider__interior container\">\n                    <div class=\"hero-slider__overlay\">\n                        <h2 class=\"headline headline--medium t-center\">Free Transportation</h2>\n                        <p class=\"t-center\">All students have free unlimited bus fare.</p>\n                        <p class=\"t-center no-margin\"><a href=\"#\" class=\"btn btn--blue\">Learn more</a></p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"hero-slider__slide\" style=\"background-image: url(<?= get_theme_file_uri('/images/apples.jpg'); ?>);\">\n                <div class=\"hero-slider__interior container\">\n                    <div class=\"hero-slider__overlay\">\n                        <h2 class=\"headline headline--medium t-center\">An Apple a Day</h2>\n                        <p class=\"t-center\">Our dentistry program recommends eating apples.</p>\n                        <p class=\"t-center no-margin\"><a href=\"#\" class=\"btn btn--blue\">Learn more</a></p>\n                    </div>\n                </div>\n            </div>\n            <div class=\"hero-slider__slide\" style=\"background-image: url(<?= get_theme_file_uri('/images/bread.jpg'); ?>);\">\n                <div class=\"hero-slider__interior container\">\n                    <div class=\"hero-slider__overlay\">\n                        <h2 class=\"headline headline--medium t-center\">Free Food</h2>\n                        <p class=\"t-center\">Fictional University offers lunch plans for those in need.</p>\n                        <p class=\"t-center no-margin\"><a href=\"#\" class=\"btn btn--blue\">Learn more</a></p>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <div class=\"slider__bullets glide__bullets\" data-glide-el=\"controls[nav]\"></div>\n    </div>\n</div>\n\n\n\n<?php get_footer(); ?>\n\n\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- front-page.php	(revision e1902bf294449c7134ea28a94a11765207067993)
++++ front-page.php	(date 1599806124983)
+@@ -64,7 +64,7 @@
+                 <?php } wp_reset_postdata(); ?>
+ 
+ 
+-            <p class="t-center no-margin"><a href="#" class="btn btn--yellow">View All Blog Posts</a></p>
++            <p class="t-center no-margin"><a href="<?= site_url('/blog')?>" class="btn btn--yellow">View All Blog Posts</a></p>
+         </div>
+     </div>
+ </div>
+Index: header.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n<!DOCTYPE html>\n<html <?php language_attributes(); ?> >\n<head>\n    <meta charset=\"<?php bloginfo('charset'); ?>\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" >\n    <?php wp_head(); ?>\n</head>\n<body <?php body_class(); ?>>\n<header class=\"site-header\">\n    <div class=\"container\">\n        <h1 class=\"school-logo-text float-left\">\n            <a href=\"<?= site_url() ?>\"><strong>Fictional</strong> University</a>\n        </h1>\n        <span class=\"js-search-trigger site-header__search-trigger\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i></span>\n        <i class=\"site-header__menu-trigger fa fa-bars\" aria-hidden=\"true\"></i>\n        <div class=\"site-header__menu group\">\n            <nav class=\"main-navigation\">\n                <ul>\n                    <li <?php if (is_page('about-us') or wp_get_post_parent_id(0) == 11) echo 'class=\"current-menu-item\"'?> ><a href=\"<?= site_url('/about-us') ?>\">About Us</a></li>\n                    <li><a href=\"#\">Programs</a></li>\n                    <li><a href=\"#\">Events</a></li>\n                    <li><a href=\"#\">Campuses</a></li>\n                    <li><a href=\"<?= site_url('/blog') ?>\">Blog</a></li>\n                </ul>\n            </nav>\n            <div class=\"site-header__util\">\n                <a href=\"#\" class=\"btn btn--small btn--orange float-left push-right\">Login</a>\n                <a href=\"#\" class=\"btn btn--small btn--dark-orange float-left\">Sign Up</a>\n                <span class=\"search-trigger js-search-trigger\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i></span>\n            </div>\n        </div>\n    </div>\n</header>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- header.php	(revision e1902bf294449c7134ea28a94a11765207067993)
++++ header.php	(date 1599632855178)
+@@ -21,7 +21,7 @@
+                     <li><a href="#">Programs</a></li>
+                     <li><a href="#">Events</a></li>
+                     <li><a href="#">Campuses</a></li>
+-                    <li><a href="<?= site_url('/blog') ?>">Blog</a></li>
++                    <li <?php if (get_post_type() == 'post') echo 'class="current-menu-item"' ?> ><a href="<?= site_url('/blog') ?>">Blog</a></li>
+                 </ul>
+             </nav>
+             <div class="site-header__util">
+Index: functions.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nfunction university_files() {\n    wp_enqueue_script('menu_script', get_theme_file_uri('/js/script.js'));\n    wp_enqueue_script('main_university_script', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);\n    wp_enqueue_style('font_styles', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');\n    wp_enqueue_style('university_main_styles', get_stylesheet_uri());\n    wp_enqueue_style('font_awesome_styles', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');\n}\n\nadd_action('wp_enqueue_scripts', 'university_files');\n\nfunction university_features() {\n    register_nav_menu('headerMenuLocation', 'Header Menu Location');\n    register_nav_menu('footerLocationOne', 'Footer Location One');\n    register_nav_menu('footerLocationTwo', 'Footer Location Two');\n    add_theme_support('title-tag');\n}\n\nadd_action('after_setup_theme', 'university_features');\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- functions.php	(revision e1902bf294449c7134ea28a94a11765207067993)
++++ functions.php	(date 1599706168676)
+@@ -1,11 +1,10 @@
+ <?php
+ 
+ function university_files() {
+-    wp_enqueue_script('menu_script', get_theme_file_uri('/js/script.js'));
+-    wp_enqueue_script('main_university_script', get_theme_file_uri('/js/scripts-bundled.js'), NULL, '1.0', true);
+     wp_enqueue_style('font_styles', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+     wp_enqueue_style('university_main_styles', get_stylesheet_uri());
+-    wp_enqueue_style('font_awesome_styles', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
++    wp_enqueue_script('main-university-js', 'http://localhost:3000/bundled.js', NULL, '1.0', true );
++
+ }
+ 
+ add_action('wp_enqueue_scripts', 'university_files');
+Index: ../../../.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5b332e0a-0f85-49f2-a6fc-b9e70ba28bbe\" name=\"Default Changelist\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1h4prvzWLFXr1LnEUBvydkRm7K6\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5b332e0a-0f85-49f2-a6fc-b9e70ba28bbe\" name=\"Default Changelist\" comment=\"\" />\n      <created>1599280420546</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1599280420546</updated>\n      <workItem from=\"1599280421629\" duration=\"751000\" />\n      <workItem from=\"1599358474759\" duration=\"691000\" />\n      <workItem from=\"1599452388874\" duration=\"97000\" />\n      <workItem from=\"1599455092044\" duration=\"121000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../../../.idea/workspace.xml	(revision e1902bf294449c7134ea28a94a11765207067993)
++++ ../../../.idea/workspace.xml	(date 1599533856919)
+@@ -36,6 +36,7 @@
+       <workItem from="1599358474759" duration="691000" />
+       <workItem from="1599452388874" duration="97000" />
+       <workItem from="1599455092044" duration="121000" />
++      <workItem from="1599469853792" duration="315000" />
+     </task>
+     <servers />
+   </component>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"718f9e76-b919-4440-adac-c61d08bb699c\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/../../../.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../../../.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/front-page.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/front-page.php\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\">\n    <execution />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"CSS File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/../../..\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1gtkc83BDo2mEXxpOd9dLJ2Hjrx\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"718f9e76-b919-4440-adac-c61d08bb699c\" name=\"Default Changelist\" comment=\"\" />\n      <created>1598941352160</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1598941352160</updated>\n      <workItem from=\"1598941354337\" duration=\"11000\" />\n      <workItem from=\"1598941402680\" duration=\"4944000\" />\n      <workItem from=\"1599107791513\" duration=\"1333000\" />\n      <workItem from=\"1599110832247\" duration=\"125000\" />\n      <workItem from=\"1599110998253\" duration=\"9051000\" />\n      <workItem from=\"1599199886570\" duration=\"4287000\" />\n      <workItem from=\"1599272916441\" duration=\"4305000\" />\n      <workItem from=\"1599282094678\" duration=\"6892000\" />\n      <workItem from=\"1599368571920\" duration=\"3246000\" />\n      <workItem from=\"1599452490296\" duration=\"1243000\" />\n      <workItem from=\"1599455223910\" duration=\"2676000\" />\n      <workItem from=\"1599622072586\" duration=\"3221000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"851\" y=\"272\" key=\"#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog\" timestamp=\"1599110845048\">\n      <screen x=\"0\" y=\"23\" width=\"1680\" height=\"972\" />\n    </state>\n    <state x=\"851\" y=\"272\" key=\"#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1680.972@0.23.1680.972\" timestamp=\"1599110845048\" />\n    <state x=\"644\" y=\"458\" key=\"NewPhpFileDialog\" timestamp=\"1599455381864\">\n      <screen x=\"0\" y=\"23\" width=\"1680\" height=\"972\" />\n    </state>\n    <state x=\"644\" y=\"458\" key=\"NewPhpFileDialog/0.23.1680.972@0.23.1680.972\" timestamp=\"1599455381864\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision e1902bf294449c7134ea28a94a11765207067993)
++++ .idea/workspace.xml	(date 1599806379256)
+@@ -20,9 +20,12 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="718f9e76-b919-4440-adac-c61d08bb699c" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/front-page.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -59,6 +62,7 @@
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/css" />
+       <recent name="$PROJECT_DIR$" />
+     </key>
+   </component>
+@@ -84,12 +88,30 @@
+       <workItem from="1599368571920" duration="3246000" />
+       <workItem from="1599452490296" duration="1243000" />
+       <workItem from="1599455223910" duration="2676000" />
+-      <workItem from="1599622072586" duration="3221000" />
++      <workItem from="1599622072586" duration="6127000" />
++      <workItem from="1599705122592" duration="1561000" />
++      <workItem from="1599801150160" duration="1401000" />
++      <workItem from="1599804050582" duration="42000" />
++      <workItem from="1599804631450" duration="270000" />
++      <workItem from="1599804921283" duration="8000" />
++      <workItem from="1599804932094" duration="35000" />
++      <workItem from="1599804969694" duration="237000" />
++      <workItem from="1599805312764" duration="900000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.History.Properties">
++    <option name="COLUMN_ORDER">
++      <list>
++        <option value="0" />
++        <option value="2" />
++        <option value="3" />
++        <option value="1" />
++      </list>
++    </option>
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+@@ -108,9 +130,33 @@
+       <screen x="0" y="23" width="1680" height="972" />
+     </state>
+     <state x="851" y="272" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1680.972@0.23.1680.972" timestamp="1599110845048" />
++    <state x="139" y="150" width="1150" height="732" key="DiffContextDialog" timestamp="1599805707254">
++      <screen x="0" y="23" width="1680" height="972" />
++    </state>
++    <state x="139" y="150" width="1150" height="732" key="DiffContextDialog/0.23.1680.972@0.23.1680.972" timestamp="1599805707254" />
++    <state width="1308" height="249" key="GridCell.Tab.0.bottom" timestamp="1599805373153">
++      <screen x="0" y="23" width="1680" height="972" />
++    </state>
++    <state width="1308" height="249" key="GridCell.Tab.0.bottom/0.23.1680.972@0.23.1680.972" timestamp="1599805373153" />
++    <state width="1308" height="249" key="GridCell.Tab.0.center" timestamp="1599805373152">
++      <screen x="0" y="23" width="1680" height="972" />
++    </state>
++    <state width="1308" height="249" key="GridCell.Tab.0.center/0.23.1680.972@0.23.1680.972" timestamp="1599805373152" />
++    <state width="1308" height="249" key="GridCell.Tab.0.left" timestamp="1599805373151">
++      <screen x="0" y="23" width="1680" height="972" />
++    </state>
++    <state width="1308" height="249" key="GridCell.Tab.0.left/0.23.1680.972@0.23.1680.972" timestamp="1599805373151" />
++    <state width="1308" height="249" key="GridCell.Tab.0.right" timestamp="1599805373152">
++      <screen x="0" y="23" width="1680" height="972" />
++    </state>
++    <state width="1308" height="249" key="GridCell.Tab.0.right/0.23.1680.972@0.23.1680.972" timestamp="1599805373152" />
+     <state x="644" y="458" key="NewPhpFileDialog" timestamp="1599455381864">
+       <screen x="0" y="23" width="1680" height="972" />
+     </state>
+     <state x="644" y="458" key="NewPhpFileDialog/0.23.1680.972@0.23.1680.972" timestamp="1599455381864" />
++    <state x="633" y="289" width="670" height="676" key="search.everywhere.popup" timestamp="1599632645797">
++      <screen x="0" y="23" width="1680" height="972" />
++    </state>
++    <state x="633" y="289" width="670" height="676" key="search.everywhere.popup/0.23.1680.972@0.23.1680.972" timestamp="1599632645797" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .gitignore	(date 1599805928966)
++++ .gitignore	(date 1599805928966)
+@@ -0,0 +1,2 @@
++node_modules/
++ai1wm-backups/
+\ No newline at end of file
