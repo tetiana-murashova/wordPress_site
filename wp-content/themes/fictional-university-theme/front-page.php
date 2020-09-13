@@ -44,7 +44,7 @@
              <?php }
              wp_reset_postdata(); ?>
 
-            <p class="t-center no-margin"><a href="<?= site_url('/event') ?>" class="btn btn--blue">View All Events</a></p>
+            <p class="t-center no-margin"><a href="<?= get_post_type_archive_link('event'); ?>" class="btn btn--blue">View All Events</a></p>
         </div>
     </div>
     <div class="full-width-split__two">
